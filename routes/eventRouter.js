@@ -1,13 +1,13 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+// const express = require('express');
+// const bodyParser = require('body-parser');
 
-const eventRouter = express.Router();
+// const eventRouter = express.Router();
 
-eventRouter.use(bodyParser.json());
+// eventRouter.use(bodyParser.json());
 
-eventRouter.route('/events', function(req, res, next) {
-    res.render('guides', { title: 'Express' });
-  });
+// eventRouter.route('/events', function(req, res, next) {
+//     res.render('guides', { title: 'Express' });
+//   });
 
 
 // .all((req, res, next) => {
@@ -28,4 +28,4 @@ eventRouter.route('/events', function(req, res, next) {
 //     res.end('Deleting all events');
 // });
 
-module.exports = eventRouter;
+// module.exports = eventRouter;

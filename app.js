@@ -3,10 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const passport = require('passport');
+const config = require('./config');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const eventRouter = require('./routes/eventRouter');
 const guideRouter = require('./routes/guideRouter');
 
 const mongoose = require('mongoose');
@@ -34,11 +35,13 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(passport.initialize());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/events', eventRouter);
+app.use(express.static(path.join(__dirname, 'public')));
+// app.use('/events', eventRouter);
 app.use('/guides', guideRouter);
 
 // catch 404 and forward to error handler
